@@ -3,18 +3,18 @@
 \******************************************************************************/
 
 // Variables
-$base-font: 'Verdana', sans-serif;
-$header-font: 'Prata', serif;
+$base-font: georgia, sans-serif;
+$header-font: 'didot', serif;
 $base-line-height: 1.5;
-$base-font-size: 12px;
+$base-font-size: .7rem;
 
 // Set standard font sizes in media querys
 html {
     font-size: $base-font-size;
 
-    @include media($medium) { font-size: 18px; }
+    @include media($medium) { font-size: .8rem; }
 
-    @include media($xlarge) { font-size: 20px; }
+    @include media($xlarge) { font-size: .9rem; }
 }
 
 
@@ -95,7 +95,7 @@ h6 {
 h1,
 .h1 {
     @include font-size(1.25);
-    @include leading-rows(1);
+    @include leading-rows(.6);
     @include trailing-rows(1);
 
     @include media($medium) { @include font-size(1.5); }

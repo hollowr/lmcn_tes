@@ -65,13 +65,23 @@ article {
 	}
 }
 
-.post-meta {
+.post-metadate {
 	@include span-columns(8);
 	@include shift(2);
 	color: $color3;
 	text-align: center;
 	font-style: italic;
-	font-size: 16px;
+	font-size: 14px;
+}
+.post-meta {
+	@include span-columns(8);
+	@include shift(2);
+	color: $maincolor;
+	text-align: center;
+	font-size: 14px;
+}
+.post-meta a{
+	color: $maincolor;
 }
 
 .post-content {
@@ -80,13 +90,32 @@ article {
 
 	position: relative;
 	background: $color2;
-	color: $color1;
+	color: $maincolor;
 	padding: 1.5em;
-	margin-top: 1.5em;
+	margin-top: 1.8em;
 }
 
 .page .post-content {
 	margin-bottom:3.5em;
+}
+.suite {
+	font: 10px helvetica normal;
+	border: 1px solid $color3;
+	padding: 6px;
+}
+.suite:hover {
+	font: 10px helvetica normal;
+	border: 1px solid $maincolor;
+	color: $maincolor;
+	padding: 6px;
+}
+.postcontent .line{
+	float: left;
+	display: block;
+	width: 2%;
+	margin-left: 49%;
+	text-align: center;
+	margin-bottom: 0.8em;
 }
 .wp-post-image {
 	width: 100%;

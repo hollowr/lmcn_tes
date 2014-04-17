@@ -17,7 +17,7 @@
 	?>
 	</section>
 <section class='postcontent contentindex'>
-	<div class="post-meta"><?php
+	<div class="post-metadate"><?php
 		lmcn_post_date(); ?>
 	</div>
 	<h1 class="post-title"><?php
@@ -33,7 +33,11 @@
 		endif; ?>
 
 	</h1>
+	<?php
 
+		if ( is_home() ) echo "<hr class='line'>";
+
+	?>
 	<div class="post-meta"><?php
 		lmcn_post_category(); ?>
 	</div>
@@ -43,6 +47,14 @@
 		<?php if ( is_front_page() || is_category() || is_archive() || is_search() ) : ?>
 
 			<?php the_excerpt(); ?>
+			<p>
+				<a class="suite" href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+					LIRE L'ARTICLE
+					<?php
+						// the_title(); 
+					?>
+				</a>
+			</p>
 
 		<?php else : ?>
 

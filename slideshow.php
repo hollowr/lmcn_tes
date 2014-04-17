@@ -27,7 +27,7 @@
                     <div class="fullsize" style="">
                         <?php $category = get_the_category();?>
                         <span class="slidecat" style=""><?php lmcn_post_category(); ?></span>
-                        <h2 style="padding:20px 13px;width: 90%;"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                        <h2 ><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                         <div class="post-content"><?php echo the_excerpt(); ?></div>
                     </div>
                 </div>
@@ -35,9 +35,10 @@
             <?php $c++; endforeach; ?>
 
         </div>
-        <div>
-            <a href="javascript: void(0);" id="larr"></a>
-            <span> 1 / <?php echo $c;?>
-            <a href="javascript: void(0);" id="rarr"></a>
+        <div id="controls">
+            <a href="javascript: void(0);" id="larr">PREC:</a>
+            <span> 1 / <?php echo $c;?></span>
+            <a href="javascript: void(0);" id="rarr">SUIV:</a>
         </div>
+
     <?php endif; ?>

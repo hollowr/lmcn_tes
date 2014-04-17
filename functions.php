@@ -54,7 +54,6 @@ function lmcn_custom_header() {
 					'color: #' . $color . ';' .
 				'}' .
 			 '</style>';
-		echo "<link href='http://fonts.googleapis.com/css?family=Prata' rel='stylesheet' type='text/css'>";
 	}
 }
 add_action( 'wp_head', 'lmcn_custom_header', 11 );
@@ -75,7 +74,7 @@ if ( !is_nav_menu('Navigation') || !is_nav_menu('Top menu') ) {
 
 class description_walker extends Walker_Nav_Menu
 {
-	function start_el(&$output, $item, $depth, $args)
+	function start_el(&$output, $item, $depth, $args, $id = 0)
 	{
 		global $wp_query;
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
@@ -84,7 +83,7 @@ class description_walker extends Walker_Nav_Menu
 
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 
-		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
+		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $depth, $args , $id ) );
 		$class_names = ' class="'. esc_attr( $class_names ) . '"';
 
 		$output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';

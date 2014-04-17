@@ -9,12 +9,13 @@
 
 get_header(); ?>
 
-	<div class="home-widgets"><?php
-		if ( function_exists( 'dynamic_sidebar' ) ) :
-			dynamic_sidebar( 'home-sidebar' );
-		endif; ?>
-	</div>
-
+<?php if ( is_home() && !get_option('ss_disable') ) get_template_part('slideshow'); ?>
+</div>	
+<?php query_posts(array(
+        'post__not_in' => $exl_posts,
+        'paged' => $paged,
+    )
+); ?>
 	<section class="page-content primary" role="main">
 		<?php
 			if ( have_posts() ) :
@@ -31,11 +32,7 @@ get_header(); ?>
 
 			endif;
 		?>
-		<div class="pagination">
-
-			<?php get_template_part( 'template-part', 'pagination' ); ?>
-
-		</div>
+		
 	</section>
-
+<?php wp_reset_query(); ?>
 <?php get_footer(); ?>

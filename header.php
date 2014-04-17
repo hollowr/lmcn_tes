@@ -42,18 +42,24 @@
 				
 
 			</header>
-			<div class="menu"><?php
+			<div class="menu">
 
-				$nav_menu = wp_nav_menu(
-					array(
-						'container' => 'nav',
-						'container_class' => 'main-menu',
-						'items_wrap' => '<ul class="%2$s">%3$s</ul>',
-						'theme_location' => 'main-menu',
-						'fallback_cb' => '__return_false',
-					)
+			<?php if ( is_home() || is_single () || is_tag()) :?>
+        		<?php wp_nav_menu( array(
+					'menu' => 'Navigation',
+					'container' =>false,
+					'menu_class' => 'nav',
+					'echo' => true,
+					'before' => '',
+					'after' => '',
+					'link_before' => '',
+					'link_after' => '',
+					'depth' => 2,
+					'id' => '',
+					'walker' => new description_walker())
 				); ?>
+ 			<?php endif; ?>
 
 			</div>
-			<?php if ( is_home() && !get_option('ss_disable') ) get_template_part('slideshow'); ?>
+			
 

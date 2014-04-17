@@ -8,11 +8,6 @@
  */
 
 get_header(); ?>
-<?php query_posts(array(
-        'post__not_in' => $exl_posts,
-        'paged' => $paged,
-    )
-); ?>
 	<section class="page-content primary" role="main">
 		<?php
 
@@ -45,5 +40,4 @@ get_header(); ?>
 
 		</div>
 	</section>
-	<?php wp_reset_query(); ?>
 <?php get_footer(); ?>
